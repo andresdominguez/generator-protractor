@@ -8,7 +8,7 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function() {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+//    this.installDependencies({ skipInstall: options['skip-install'] });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -19,8 +19,7 @@ util.inherits(ProtractorGenerator, yeoman.generators.Base);
 ProtractorGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
+  console.log('Welcome to the protractor code generator.\n');
 
   var prompts = [
     {
@@ -41,6 +40,6 @@ ProtractorGenerator.prototype.app = function app() {
   this.mkdir('spec');
 };
 
-ProtractorGenerator.prototype.projectfiles = function() {
+ProtractorGenerator.prototype.createFiles = function() {
   this.copy('configTemplate.js', 'myConfig.js');
 };
