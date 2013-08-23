@@ -13,9 +13,6 @@ util.inherits(UnitGenerator, yeoman.generators.NamedBase);
 UnitGenerator.prototype.info = function() {
   var cb = this.async();
 
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
-
   var prompts = [
     {
       type: 'list',
@@ -46,5 +43,5 @@ UnitGenerator.prototype.files = function files() {
       break;
   }
 
-  this.copy(templateName, this.name + '.js');
+  this.copy(templateName, this.name + 'Spec.js');
 };
