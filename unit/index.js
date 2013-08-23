@@ -1,6 +1,9 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
+var angularUtils = require('../util.js');
+var path = require('path');
+
 
 var UnitGenerator = module.exports = function UnitGenerator(args, options, config) {
   // By calling `NamedBase` here, we get the argument to the subgenerator call
@@ -43,5 +46,23 @@ UnitGenerator.prototype.files = function files() {
       break;
   }
 
-  this.copy(templateName, this.name + 'Spec.js');
+  this.fileName = this.name + 'Spec.js';
+  this.copy(templateName, this.fileName);
+
+  this._addScriptToIndex('\'' + this.fileName + '\',');
+};
+
+UnitGenerator.prototype._addScriptToIndex = function(script) {
+  try {
+    var fullPath = path.join('myConfig.js');
+    angularUtils.rewriteFile({
+      file: fullPath,
+      needle: '// end-tests.',
+      splicable: [
+        script
+      ]
+    });
+  } catch (e) {
+    console.log('\nUnable to find '.yellow + fullPath + '. Reference to '.yellow + script + '.js ' + 'not added.\n'.yellow);
+  }
 };
