@@ -37,5 +37,14 @@ UnitGenerator.prototype.info = function() {
 };
 
 UnitGenerator.prototype.files = function files() {
-//  this.copy('somefile.js', 'somefile.js');
+  var templateName;
+  switch (this.testType) {
+    case 'protractor':
+      templateName = 'protractorTemplate.js';
+      break;
+    case 'jasmine':
+      break;
+  }
+
+  this.copy(templateName, this.name + '.js');
 };
