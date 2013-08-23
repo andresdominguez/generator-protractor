@@ -48,21 +48,20 @@ UnitGenerator.prototype.files = function files() {
 
   this.fileName = this.name + 'Spec.js';
   this.copy(templateName, this.fileName);
-
-  this._addScriptToIndex('\'' + this.fileName + '\',');
 };
 
-UnitGenerator.prototype._addScriptToIndex = function(script) {
+UnitGenerator.prototype.addTestToConfig = function() {
+  var testString = '\'' + this.fileName + '\',';
   try {
     var fullPath = path.join('myConfig.js');
     angularUtils.rewriteFile({
       file: fullPath,
       needle: '// end-tests.',
       splicable: [
-        script
+        testString
       ]
     });
   } catch (e) {
-    console.log('\nUnable to find '.yellow + fullPath + '. Reference to '.yellow + script + '.js ' + 'not added.\n'.yellow);
+    console.log('\nUnable to find '.yellow + fullPath + '. Reference to '.yellow + testString + '.js ' + 'not added.\n'.yellow);
   }
 };
