@@ -6,12 +6,36 @@ var UnitGenerator = module.exports = function UnitGenerator(args, options, confi
   // By calling `NamedBase` here, we get the argument to the subgenerator call
   // as `this.name`.
   yeoman.generators.NamedBase.apply(this, arguments);
-
-  console.log('You called the unit subgenerator with the argument ' + this.name + '.');
 };
 
 util.inherits(UnitGenerator, yeoman.generators.NamedBase);
 
+UnitGenerator.prototype.info = function() {
+  var cb = this.async();
+
+  // have Yeoman greet the user.
+  console.log(this.yeoman);
+
+  var prompts = [
+    {
+      type: 'list',
+      name: 'testType',
+      choices: [
+        'protractor',
+        'jasmine'
+      ],
+      message: 'What kind of test would you like to generate?',
+      default: true
+    }
+  ];
+
+  this.prompt(prompts, function(props) {
+    this.testType = props.testType;
+    cb();
+  }.bind(this));
+
+};
+
 UnitGenerator.prototype.files = function files() {
-  this.copy('somefile.js', 'somefile.js');
+//  this.copy('somefile.js', 'somefile.js');
 };
