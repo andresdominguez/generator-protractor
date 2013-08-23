@@ -8,7 +8,7 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function() {
-//    this.installDependencies({ skipInstall: options['skip-install'] });
+    this.installDependencies({ skipInstall: options['skip-install'] });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -41,5 +41,10 @@ ProtractorGenerator.prototype.app = function app() {
 };
 
 ProtractorGenerator.prototype.createFiles = function() {
-  this.copy('configTemplate.js', 'myConfig.js');
+  this.copy('configTemplate.js', this.configName);
+  this.copy('package.json');
+};
+
+ProtractorGenerator.prototype.todo = function() {
+  console.log('\nDone! To add a test type yo protractor:unit');
 };

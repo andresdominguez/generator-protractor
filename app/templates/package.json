@@ -1,5 +1,5 @@
 {
-  "name": "Protractor tests",
+  "name": "protractor-tests",
   "version": "0.0.1",
   "devDependencies": {
     "protractor": "~0.7.0"
