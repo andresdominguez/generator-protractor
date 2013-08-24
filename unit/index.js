@@ -43,6 +43,7 @@ UnitGenerator.prototype.files = function files() {
       templateName = 'protractorTemplate.js';
       break;
     case 'jasmine':
+      templateName = 'jasmineTemplate.js';
       break;
   }
 
@@ -52,7 +53,12 @@ UnitGenerator.prototype.files = function files() {
 };
 
 UnitGenerator.prototype.addTestToConfig = function() {
-  var testString = '\'' + this.fileName + '\',';
+  // Add the unit test to the config file if you chose protractor.
+  if (this.testType !== 'protractor') {
+    return;
+  }
+
+  var testString = '\'' + this.fileName + '\'';
   try {
     // Add the unit test to the protractor configuration file.
     var fullPath = path.join('myConfig.js');

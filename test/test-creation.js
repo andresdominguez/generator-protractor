@@ -74,7 +74,20 @@ describe('protractor generator', function() {
         ]);
 
         done();
-      })
+      });
+    });
+
+    it('should create a jasmine unit test', function(done) {
+      helpers.mockPrompt(generator, {
+        'testType': 'jasmine'
+      });
+      generator.run({}, function() {
+        // Ensure the unit test file was created.
+        helpers.assertFiles([
+          'spec/my-testSpec.js'
+        ]);
+        done();
+      });
     });
   });
 });
