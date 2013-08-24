@@ -54,6 +54,7 @@ UnitGenerator.prototype.files = function files() {
 UnitGenerator.prototype.addTestToConfig = function() {
   var testString = '\'' + this.fileName + '\',';
   try {
+    // Add the unit test to the protractor configuration file.
     var fullPath = path.join('myConfig.js');
     fileUtils.rewriteFile({
       file: fullPath,
@@ -63,6 +64,6 @@ UnitGenerator.prototype.addTestToConfig = function() {
       ]
     });
   } catch (e) {
-    console.log('\nUnable to find '.yellow + fullPath + '. Reference to '.yellow + testString + '.js ' + 'not added.\n'.yellow);
+    console.log('\nUnable to find ' + fullPath + '. Reference to ' + testString + ' not added.\n');
   }
 };
