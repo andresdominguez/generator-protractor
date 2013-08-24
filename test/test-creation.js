@@ -36,4 +36,25 @@ describe('protractor generator', function() {
       done();
     });
   });
+
+  describe('Unit test creation', function() {
+    var generator;
+
+    beforeEach(function(done) {
+      generator = helpers.createGenerator('protractor:unit', [
+        '../../unit'
+      ], 'my-test');
+      done();
+    });
+
+    it('should create a protractor unit test', function(done) {
+      helpers.mockPrompt(generator, {
+        'testType': 'protractor'
+      });
+      generator.run({}, function() {
+        helpers.assertFiles(['my-testSpec.js']);
+        done();
+      })
+    });
+  });
 });
