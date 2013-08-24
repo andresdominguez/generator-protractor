@@ -20,8 +20,7 @@ describe('protractor generator', function() {
   });
 
   it('should create config file and package.json', function(done) {
-    var expected = [
-      // add files you expect to exist here.
+    var expectedFiles = [
       'myConfig.js',
       'package.json'
     ];
@@ -31,7 +30,7 @@ describe('protractor generator', function() {
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function() {
-      helpers.assertFiles(expected);
+      helpers.assertFiles(expectedFiles);
       done();
     });
   });
