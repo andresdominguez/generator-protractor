@@ -22,17 +22,15 @@ describe('protractor generator', function() {
   it('should create config file and package.json', function(done) {
     var configFileName = 'theConfigFileName.js';
 
-    var expectedFiles = [
-      configFileName,
-      'package.json'
-    ];
-
     helpers.mockPrompt(this.app, {
       'configName': configFileName
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function() {
-      helpers.assertFiles(expectedFiles);
+      helpers.assertFiles([
+        configFileName,
+        'package.json'
+      ]);
       done();
     });
   });
