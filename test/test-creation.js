@@ -21,6 +21,15 @@ describe('protractor generator', function() {
     });
   });
 
+  var createProject = function(configFileName) {
+    helpers.mockPrompt(app, {
+      'configName': configFileName
+    });
+    app.options['skip-install'] = true;
+    app.run({}, function() {
+    });
+  };
+
   it('should create config file and package.json', function(done) {
     var configFileName = 'theConfigFileName.js';
 
@@ -41,6 +50,7 @@ describe('protractor generator', function() {
     var generator;
 
     beforeEach(function(done) {
+      createProject('myConf.js');
       generator = helpers.createGenerator('protractor:unit', [
         '../../unit'
       ], 'my-test');
@@ -52,7 +62,7 @@ describe('protractor generator', function() {
         'testType': 'protractor'
       });
       generator.run({}, function() {
-        helpers.assertFiles(['my-testSpec.js']);
+        helpers.assertFiles(['spec/my-testSpec.js']);
         done();
       })
     });
