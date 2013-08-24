@@ -6,27 +6,29 @@ var helpers = require('yeoman-generator').test;
 
 
 describe('protractor generator', function() {
+  var app;
+
   beforeEach(function(done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function(err) {
       if (err) {
         return done(err);
       }
 
-      this.app = helpers.createGenerator('protractor:app', [
+      app = helpers.createGenerator('protractor:app', [
         '../../app'
       ]);
       done();
-    }.bind(this));
+    });
   });
 
   it('should create config file and package.json', function(done) {
     var configFileName = 'theConfigFileName.js';
 
-    helpers.mockPrompt(this.app, {
+    helpers.mockPrompt(app, {
       'configName': configFileName
     });
-    this.app.options['skip-install'] = true;
-    this.app.run({}, function() {
+    app.options['skip-install'] = true;
+    app.run({}, function() {
       helpers.assertFiles([
         configFileName,
         'package.json'
