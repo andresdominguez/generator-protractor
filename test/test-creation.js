@@ -20,13 +20,15 @@ describe('protractor generator', function() {
   });
 
   it('should create config file and package.json', function(done) {
+    var configFileName = 'theConfigFileName.js';
+
     var expectedFiles = [
-      'myConfig.js',
+      configFileName,
       'package.json'
     ];
 
     helpers.mockPrompt(this.app, {
-      'configName': 'myConfig.js'
+      'configName': configFileName
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function() {
