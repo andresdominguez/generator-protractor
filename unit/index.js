@@ -47,7 +47,7 @@ UnitGenerator.prototype.files = function files() {
   }
 
   var testDir = 'spec';
-  this.fileName = path.join(testDir, this.name + 'Spec.js')
+  this.fileName = path.join(testDir, this.name + 'Spec.js');
   this.copy(templateName, this.fileName);
 };
 
