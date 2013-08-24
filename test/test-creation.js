@@ -50,7 +50,7 @@ describe('protractor generator', function() {
     var generator;
 
     beforeEach(function(done) {
-      createProject('myConf.js');
+      createProject('myConfig.js');
       generator = helpers.createGenerator('protractor:unit', [
         '../../unit'
       ], 'my-test');
@@ -62,7 +62,17 @@ describe('protractor generator', function() {
         'testType': 'protractor'
       });
       generator.run({}, function() {
-        helpers.assertFiles(['spec/my-testSpec.js']);
+        // Ensure the unit test file was created.
+        helpers.assertFiles([
+          'spec/my-testSpec.js',
+          'myConfig.js'
+        ]);
+
+        // And ensure the config file contains the unit test.
+        helpers.assertFiles([
+          ['myConfig.js', /'spec\/my-testSpec.js'/]
+        ]);
+
         done();
       })
     });
