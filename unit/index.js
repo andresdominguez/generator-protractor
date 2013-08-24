@@ -1,7 +1,7 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
-var angularUtils = require('../util.js');
+var fileUtils = require('../util.js');
 var path = require('path');
 
 
@@ -55,7 +55,7 @@ UnitGenerator.prototype.addTestToConfig = function() {
   var testString = '\'' + this.fileName + '\',';
   try {
     var fullPath = path.join('myConfig.js');
-    angularUtils.rewriteFile({
+    fileUtils.rewriteFile({
       file: fullPath,
       needle: '// end-tests.',
       splicable: [
