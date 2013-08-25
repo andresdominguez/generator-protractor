@@ -16,7 +16,7 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
 
 util.inherits(ProtractorGenerator, yeoman.generators.Base);
 
-ProtractorGenerator.prototype.askFor = function() {
+ProtractorGenerator.prototype.askForConfigName = function() {
   var cb = this.async();
 
   console.log('Welcome to the protractor code generator.\n');
