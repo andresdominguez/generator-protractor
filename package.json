@@ -9,7 +9,7 @@
   "bugs": "https://github.com/andresdominguez/generator-protractor/issues",
   "author": {
     "name": "Andres Dominguez",
-    "email": "",
+    "email": "code@karateca.com",
     "url": "https://github.com/andresdominguez"
   },
   "main": "app/index.js",
