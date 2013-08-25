@@ -64,13 +64,13 @@ describe('protractor generator', function() {
       generator.run({}, function() {
         // Ensure the unit test file was created.
         helpers.assertFiles([
-          'spec/my-testSpec.js',
+          'spec/my-test-spec.js',
           'myConfig.js'
         ]);
 
         // And ensure the config file contains the unit test.
         helpers.assertFiles([
-          ['myConfig.js', /'spec\/my-testSpec.js'/]
+          ['myConfig.js', /'spec\/my-test-spec.js'/]
         ]);
 
         done();
@@ -84,7 +84,7 @@ describe('protractor generator', function() {
       generator.run({}, function() {
         // Ensure the unit test file was created.
         helpers.assertFiles([
-          'spec/my-testSpec.js'
+          'spec/my-test-spec.js'
         ]);
         done();
       });

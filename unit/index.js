@@ -48,7 +48,7 @@ UnitGenerator.prototype.files = function files() {
   }
 
   var testDir = 'spec';
-  this.fileName = path.join(testDir, this.name + 'Spec.js');
+  this.fileName = path.join(testDir, this.name + '-spec.js');
   this.copy(templateName, this.fileName);
 };
 
@@ -58,7 +58,7 @@ UnitGenerator.prototype.addTestToConfig = function() {
     return;
   }
 
-  var testString = '\'' + this.fileName + '\'';
+  var testString = '\'' + this.fileName + '\',';
   try {
     // Add the unit test to the protractor configuration file.
     var fullPath = path.join('myConfig.js');
