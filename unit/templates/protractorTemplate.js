@@ -1,7 +1,8 @@
 var util = require('util');
 
 describe('angularjs homepage', function() {
-  var ptor = protractor.getInstance();
+  var ptor = protractor.getInstance(),
+      TIMEOUT = 10000;
 
   it('should greet using binding', function() {
 
@@ -13,5 +14,5 @@ describe('angularjs homepage', function() {
         getText().then(function(text) {
           expect(text).toEqual('Hello Julie!');
         });
-  });
+  }, TIMEOUT);
 });
