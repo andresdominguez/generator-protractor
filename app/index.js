@@ -8,7 +8,10 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function() {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    this.installDependencies({
+      bower: false,
+      skipInstall: options['skip-install']
+    });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
