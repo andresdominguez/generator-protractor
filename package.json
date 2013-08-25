@@ -1,9 +1,14 @@
 {
   "name": "generator-protractor",
-  "version": "0.1.0",
-  "description": "A generator for Yeoman",
+  "version": "0.1.1",
+  "description": "A Yeoman for protractor",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "yeoman",
+    "protractor",
+    "angular",
+    "test",
+    "testing"
   ],
   "homepage": "https://github.com/andresdominguez/generator-protractor",
   "bugs": "https://github.com/andresdominguez/generator-protractor/issues",
