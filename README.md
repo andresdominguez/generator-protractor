@@ -57,7 +57,7 @@ $ java -jar selenium/selenium-server-standalone-2.34.0.jar -Dwebdriver.chrome.dr
 Open another terminal and run the integration tests:
 
 ```
-$ ./node_modules/protractor/bin/protractor myConfig.js
+$ ./node_modules/protractor/bin/protractor protractorConfig.js
 ```
 
 ### Getting To Know Yeoman
