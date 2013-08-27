@@ -29,7 +29,7 @@ ProtractorGenerator.prototype.askForConfigName = function() {
       type: 'input',
       name: 'configName',
       message: 'Choose a name for the protractor configuration file',
-      default: 'myConfig.js'
+      default: 'protractorConfig.js'
     }
   ];
 
@@ -49,5 +49,5 @@ ProtractorGenerator.prototype.createFiles = function() {
 };
 
 ProtractorGenerator.prototype.todo = function() {
-  console.log('\nDone! To add a test type yo protractor:unit');
+  console.log('\nDone! To add a test type yo protractor:unit test-name');
 };
