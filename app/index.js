@@ -4,7 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 
-var ProtractorGenerator = module.exports = function ProtractorGenerator(args, options, config) {
+var ProtractorGenerator = module.exports = function ProtractorGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function() {
@@ -29,7 +29,7 @@ ProtractorGenerator.prototype.askForConfigName = function() {
       type: 'input',
       name: 'configName',
       message: 'Choose a name for the protractor configuration file',
-      default: 'protractorConfig.js'
+      default: 'protractor-config.js'
     }
   ];
 

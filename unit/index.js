@@ -6,7 +6,7 @@ var path = require('path');
 var fs = require('fs');
 
 
-var UnitGenerator = module.exports = function UnitGenerator(args, options, config) {
+var UnitGenerator = module.exports = function UnitGenerator() {
   // By calling `NamedBase` here, we get the argument to the subgenerator call
   // as `this.name`.
   yeoman.generators.NamedBase.apply(this, arguments);
@@ -14,47 +14,14 @@ var UnitGenerator = module.exports = function UnitGenerator(args, options, confi
 
 util.inherits(UnitGenerator, yeoman.generators.NamedBase);
 
-UnitGenerator.prototype.info = function() {
-  var cb = this.async();
-
-  var prompts = [
-    {
-      type: 'list',
-      name: 'testType',
-      choices: [
-        'protractor',
-        'jasmine'
-      ],
-      message: 'What kind of test would you like to generate?',
-      default: true
-    }
-  ];
-
-  this.prompt(prompts, function(props) {
-    this.testType = props.testType;
-    cb();
-  }.bind(this));
-};
-
 UnitGenerator.prototype.files = function files() {
-  var templateName;
-  switch (this.testType) {
-    case 'protractor':
-      templateName = 'protractorTemplate.js';
-      break;
-    case 'jasmine':
-      templateName = 'jasmineTemplate.js';
-      break;
-  }
-
-  var testDir = 'spec';
-  this.fileName = path.join(testDir, this.name + '-spec.js');
-  this.copy(templateName, this.fileName);
+  this.fileName = path.join('spec', this.name + '-spec.js');
+  this.copy('protractorTemplate.js', this.fileName);
 };
 
 /** Check if the protractor configuration file is present. */
 UnitGenerator.prototype.checkConfigExists = function() {
-  this.configFileName = 'protractorConfig.js';
+  this.configFileName = 'protractor-config.js';
 
   if (!fs.existsSync(this.configFileName)) {
     console.log('Couldn\'t find config file ' + this.configFileName);
@@ -82,11 +49,6 @@ UnitGenerator.prototype._askConfigFileName = function() {
 };
 
 UnitGenerator.prototype.addTestToConfig = function() {
-  // Add the unit test to the config file if you chose protractor.
-  if (this.testType !== 'protractor') {
-    return;
-  }
-
   var testString = '\'' + this.fileName + '\',';
   try {
     // Add the unit test to the protractor configuration file.
