@@ -87,7 +87,7 @@ describe('protractor generator', function() {
     };
 
     it('should create a protractor unit test', function(done) {
-      var configName = 'protractorConfig.js';
+      var configName = 'protractor-config.js';
 
       createUnitTest(configName);
 
@@ -104,24 +104,10 @@ describe('protractor generator', function() {
       createUnitTest(configName);
 
       helpers.mockPrompt(generator, {
-        'testType': 'protractor',
         'configFileName': configName
       });
 
       ensureUnitTestWasAddedToConfig(configName, done);
-    });
-
-    it('should create a jasmine unit test', function(done) {
-      helpers.mockPrompt(generator, {
-        'testType': 'jasmine'
-      });
-      generator.run({}, function() {
-        // Ensure the unit test file was created.
-        helpers.assertFiles([
-          'spec/my-test-spec.js'
-        ]);
-        done();
-      });
     });
   });
 });
