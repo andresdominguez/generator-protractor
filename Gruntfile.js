@@ -43,5 +43,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['mocha']);
+  grunt.registerTask('default', ['mochacli']);
 };
