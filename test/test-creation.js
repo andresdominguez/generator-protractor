@@ -34,19 +34,21 @@ describe('protractor generator', function() {
     });
   };
 
-  it('should create config file and package.json', function(done) {
-    var configFileName = 'theConfigFileName.js';
+  describe('Project creation', function() {
+    it('should create config file and package.json', function(done) {
+      var configFileName = 'theConfigFileName.js';
 
-    helpers.mockPrompt(app, {
-      'configName': configFileName
-    });
-    app.options['skip-install'] = true;
-    app.run({}, function() {
-      helpers.assertFiles([
-        configFileName,
-        'package.json'
-      ]);
-      done();
+      helpers.mockPrompt(app, {
+        'configName': configFileName
+      });
+      app.options['skip-install'] = true;
+      app.run({}, function() {
+        helpers.assertFiles([
+          configFileName,
+          'package.json'
+        ]);
+        done();
+      });
     });
   });
 
