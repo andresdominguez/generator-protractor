@@ -36,17 +36,27 @@ describe('protractor generator', function() {
 
   describe('Project creation', function() {
     it('should create config file and package.json', function(done) {
-      var configFileName = 'theConfigFileName.js';
+      var configFileName = 'theConfigFileName.js',
+          timeout = 12345;
 
       helpers.mockPrompt(app, {
-        'configName': configFileName
+        'configName': configFileName,
+        'timeout': timeout
       });
       app.options['skip-install'] = true;
       app.run({}, function() {
+
+        // Ensure the configuration and the package.json files were created.
         helpers.assertFiles([
           configFileName,
           'package.json'
         ]);
+
+        // Ensure the configuration file contains the timeout.
+        helpers.assertFiles([
+          [configFileName, /12345/]
+        ]);
+
         done();
       });
     });
