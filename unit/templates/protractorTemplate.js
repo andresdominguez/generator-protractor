@@ -2,8 +2,7 @@
 'use strict';
 
 describe('angularjs homepage', function() {
-  var ptor = protractor.getInstance(),
-      TIMEOUT = 10000;
+  var ptor = protractor.getInstance();
 
   it('should greet using binding', function() {
     ptor.get('http://www.angularjs.org');
@@ -14,5 +13,5 @@ describe('angularjs homepage', function() {
         getText().then(function(text) {
           expect(text).toEqual('Hello Julie!');
         });
-  }, TIMEOUT);
+  });
 });

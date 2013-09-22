@@ -30,11 +30,18 @@ ProtractorGenerator.prototype.askForConfigName = function() {
       name: 'configName',
       message: 'Choose a name for the protractor configuration file',
       default: 'protractor-config.js'
+    },
+    {
+      type: 'input',
+      name: 'timeout',
+      message: 'Choose a default timeout (in milliseconds) for the tests',
+      default: 5000
     }
   ];
 
   this.prompt(prompts, function(props) {
     this.configName = props.configName;
+    this.timeout = props.timeout;
     cb();
   }.bind(this));
 };
