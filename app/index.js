@@ -53,6 +53,7 @@ ProtractorGenerator.prototype.app = function app() {
 ProtractorGenerator.prototype.createFiles = function() {
   this.copy('configTemplate.js', this.configName);
   this.copy('package.json');
+  this.copy('README.txt');
 };
 
 ProtractorGenerator.prototype.todo = function() {

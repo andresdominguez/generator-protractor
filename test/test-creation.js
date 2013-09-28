@@ -49,7 +49,8 @@ describe('protractor generator', function() {
         // Ensure the configuration and the package.json files were created.
         helpers.assertFiles([
           configFileName,
-          'package.json'
+          'package.json',
+          'README.txt'
         ]);
 
         // Ensure the configuration file contains the timeout.
