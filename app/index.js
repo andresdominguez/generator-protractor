@@ -1,4 +1,5 @@
 'use strict';
+/*jshint -W098*/
 var colors = require('colors');
 var util = require('util');
 var path = require('path');
