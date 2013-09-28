@@ -51,7 +51,7 @@ $ ./node_modules/protractor/bin/install_selenium_standalone
 Start the selenium standalone server with:
 
 ```
-$ java -jar selenium/selenium-server-standalone-2.35.0.jar -Dwebdriver.chrome.driver=./selenium/chromedriver
+./selenium/start
 ```
 
 Open another terminal and run the integration tests:
