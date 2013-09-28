@@ -1,4 +1,5 @@
 'use strict';
+var colors = require('colors');
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
@@ -12,6 +13,18 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
       bower: false,
       skipInstall: options['skip-install']
     });
+
+    console.log('Done! Now follow these steps:'.bold);
+    console.log('1. Generate a Protractor test:');
+    console.log('yo protractor:unit test-name'.blue);
+    console.log('\n2. Download the Protractor dependencies:');
+    console.log('./node_modules/protractor/bin/install_selenium_standalone'.blue);
+    console.log('\n3. Start the Selenium server:');
+    console.log('./selenium/start'.blue);
+    console.log('\n4. Run Protractor:');
+    console.log(('./node_modules/protractor/bin/protractor ' + this.configName).blue);
+    console.log('\nYou can read these instructions in README.txt\n');
+
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -54,8 +67,4 @@ ProtractorGenerator.prototype.createFiles = function() {
   this.copy('configTemplate.js', this.configName);
   this.copy('package.json');
   this.copy('README.txt');
-};
-
-ProtractorGenerator.prototype.todo = function() {
-  console.log('\nDone! To add a test type yo protractor:unit test-name');
 };
