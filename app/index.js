@@ -48,7 +48,7 @@ ProtractorGenerator.prototype.askForConfigName = function() {
       type: 'input',
       name: 'timeout',
       message: 'Choose a default timeout (in milliseconds) for the tests',
-      default: 20000
+      default: 10000
     }
   ];
 
