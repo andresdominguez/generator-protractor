@@ -37,7 +37,7 @@ describe('protractor generator', function() {
   describe('Project creation', function() {
     it('should create config file and package.json', function(done) {
       var configFileName = 'theConfigFileName.js',
-          baseUrl = 'http://www.angularjs.org';
+          baseUrl = 'ABC';
 
       helpers.mockPrompt(app, {
         'configName': configFileName,
@@ -51,7 +51,12 @@ describe('protractor generator', function() {
           configFileName,
           'package.json',
           'README.txt',
-          'example-spec.js'
+          'spec/example_spec.js'
+        ]);
+
+        // Ensure the configuration file contains the timeout.
+        helpers.assertFiles([
+          [configFileName, /ABC/]
         ]);
 
         done();

@@ -45,15 +45,15 @@ ProtractorGenerator.prototype.askForConfigName = function() {
     },
     {
       type: 'input',
-      name: 'timeout',
-      message: 'Choose a default timeout (in milliseconds) for the tests',
-      default: 10000
+      name: 'baseUrl',
+      message: 'Choose a base URL',
+      default: 'http://localhost:8000'
     }
   ];
 
   this.prompt(prompts, function(props) {
     this.configName = props.configName;
-    this.timeout = props.timeout;
+    this.baseUrl = props.baseUrl;
     cb();
   }.bind(this));
 };
@@ -65,6 +65,6 @@ ProtractorGenerator.prototype.app = function app() {
 ProtractorGenerator.prototype.createFiles = function() {
   this.copy('configTemplate.js', this.configName);
   this.copy('package.json');
-  this.copy('example-spec.js');
+  this.copy('example_spec.js', 'spec/example_spec.js');
   this.copy('README.txt');
 };

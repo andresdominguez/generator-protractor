@@ -8,7 +8,7 @@ exports.config = {
   // Spec patterns are relative to the location of this config.
   // For example: 'spec/*_spec.js',
   specs: [
-    // end-tests.
+    'spec/*_spec.js'
   ],
 
   // ----- Capabilities to be passed to the webdriver instance ----
@@ -24,7 +24,7 @@ exports.config = {
 
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://localhost:8000',
+  baseUrl: '<%=baseUrl%>',
 
   // Selector for the element housing the angular app - this defaults to
   // body, but is necessary if ng-app is on a descendant of <body>
