@@ -8,20 +8,24 @@ var yeoman = require('yeoman-generator');
 var ProtractorGenerator = module.exports = function ProtractorGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
+  var configName = this.configName;
+
   this.on('end', function() {
     this.installDependencies({
       bower: false,
-      skipInstall: options['skip-install']
+      skipInstall: options['skip-install'],
+      callback: function() {
+        console.log('Done! Now follow these steps:');
+        console.log('1. Download the Protractor dependencies:');
+        console.log('./node_modules/protractor/bin/install_selenium_standalone');
+        console.log('\n2. Start the Selenium server:');
+        console.log('./selenium/start');
+        console.log('\n3. Open a new terminal and run Protractor:');
+        console.log('./node_modules/protractor/bin/protractor ' + configName);
+        console.log('\nYou can read these instructions in README.txt\n');
+      }
     });
 
-    console.log('Done! Now follow these steps:');
-    console.log('1. Download the Protractor dependencies:');
-    console.log('./node_modules/protractor/bin/install_selenium_standalone');
-    console.log('\n2. Start the Selenium server:');
-    console.log('./selenium/start');
-    console.log('\n3. Open a new terminal and run Protractor:');
-    console.log('./node_modules/protractor/bin/protractor ' + this.configName);
-    console.log('\nYou can read these instructions in README.txt\n');
 
   });
 
