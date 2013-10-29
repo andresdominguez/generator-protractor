@@ -1,6 +1,5 @@
 'use strict';
-/*jshint -W098*/
-var colors = require('colors');
+
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
@@ -15,13 +14,13 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
       skipInstall: options['skip-install']
     });
 
-    console.log('Done! Now follow these steps:'.bold);
+    console.log('Done! Now follow these steps:');
     console.log('1. Download the Protractor dependencies:');
-    console.log('./node_modules/protractor/bin/install_selenium_standalone'.blue);
+    console.log('./node_modules/protractor/bin/install_selenium_standalone');
     console.log('\n2. Start the Selenium server:');
-    console.log('./selenium/start'.blue);
-    console.log('\n3. Run Protractor:');
-    console.log(('./node_modules/protractor/bin/protractor ' + this.configName).blue);
+    console.log('./selenium/start');
+    console.log('\n3. Open a new terminal and run Protractor:');
+    console.log('./node_modules/protractor/bin/protractor ' + this.configName);
     console.log('\nYou can read these instructions in README.txt\n');
 
   });
