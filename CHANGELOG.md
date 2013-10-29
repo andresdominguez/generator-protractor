@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.1.8
+
+* Upgrade to 0.12.0
+* Generate a test by default
+* Use the new protractor syntax
+
 ## Version 0.1.7
 
 Some minor changes:

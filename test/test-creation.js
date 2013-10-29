@@ -37,11 +37,11 @@ describe('protractor generator', function() {
   describe('Project creation', function() {
     it('should create config file and package.json', function(done) {
       var configFileName = 'theConfigFileName.js',
-          timeout = 12345;
+          baseUrl = 'http://www.angularjs.org';
 
       helpers.mockPrompt(app, {
         'configName': configFileName,
-        'timeout': timeout
+        'baseUrl': baseUrl
       });
       app.options['skip-install'] = true;
       app.run({}, function() {
@@ -50,12 +50,8 @@ describe('protractor generator', function() {
         helpers.assertFiles([
           configFileName,
           'package.json',
-          'README.txt'
-        ]);
-
-        // Ensure the configuration file contains the timeout.
-        helpers.assertFiles([
-          [configFileName, /12345/]
+          'README.txt',
+          'example-spec.js'
         ]);
 
         done();

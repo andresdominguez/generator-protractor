@@ -32,14 +32,6 @@ Run the generator:
 $ yo protractor
 ```
 
-###Generate a unit test
-
-To generate a protractor unit test just type:
-
-```
-$ yo protractor:unit my-test-name
-```
-
 ###Installing selenium and running the tests
 
 You need to download selenium and start it in your local machine. Just run the following command:
