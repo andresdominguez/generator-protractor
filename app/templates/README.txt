@@ -6,5 +6,5 @@ How to run the tests:
 2. Start the Selenium server:
 ./selenium/start
 
-3. Run Protractor:
+3. Open a new terminal and run Protractor:
 ./node_modules/protractor/bin/protractor <%=configName%>
