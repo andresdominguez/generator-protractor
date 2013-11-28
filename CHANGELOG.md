@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.1.9
+
+* Upgrade to 0.13.0
+
 ## Version 0.1.8
 
 * Upgrade to 0.12.0
