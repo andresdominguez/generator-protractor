@@ -8,7 +8,7 @@ var yeoman = require('yeoman-generator');
 var ProtractorGenerator = module.exports = function ProtractorGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
-  var configName = this.configName;
+  var self = this;
 
   this.on('end', function() {
     this.installDependencies({
@@ -21,12 +21,10 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
         console.log('\n2. Start the Selenium server:');
         console.log('./selenium/start');
         console.log('\n3. Open a new terminal and run Protractor:');
-        console.log('./node_modules/protractor/bin/protractor ' + configName);
+        console.log('./node_modules/protractor/bin/protractor ' + self.configName);
         console.log('\nYou can read these instructions in README.txt\n');
       }
     });
-
-
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
