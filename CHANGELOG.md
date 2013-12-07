@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.1.10
+
+* Upgrade to protractor 0.14.0
+* Changed selenium installation instructions
+* Upgraded to Yeoman 1.0.4
+
 ## Version 0.1.9
 
 * Upgrade to 0.13.0

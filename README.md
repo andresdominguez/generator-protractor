@@ -37,13 +37,13 @@ $ yo protractor
 You need to download selenium and start it in your local machine. Just run the following command:
 
 ```
-$ ./node_modules/protractor/bin/install_selenium_standalone
+$ ./node_modules/protractor/bin/webdriver-manager update
 ```
 
 Start the selenium standalone server with:
 
 ```
-./selenium/start
+$ ./node_modules/protractor/bin/webdriver-manager start
 ```
 
 Open another terminal and run the integration tests:
