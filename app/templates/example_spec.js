@@ -1,4 +1,3 @@
-/*global describe, expect, it*/
 'use strict';
 
 describe('angularjs homepage', function() {
