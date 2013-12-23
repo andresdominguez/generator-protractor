@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.1.15
+
+* Upgrade to protractor 0.15.0
+* Jump in version to match protractor version.
+* Removed jshint comments from template
+
 ## Version 0.1.10
 
 * Upgrade to protractor 0.14.0
