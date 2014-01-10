@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.1.16
+
+* Upgrade to protractor 0.16.1
+* Add colors dependency
+
 ## Version 0.1.15
 
 * Upgrade to protractor 0.15.0
