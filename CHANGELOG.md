@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.1.17
+
+* Upgrade to protractor 17
+* Automatically install the selenium standalone dependencies
+
 ## Version 0.1.16
 
 * Upgrade to protractor 0.16.1

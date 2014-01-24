@@ -15,13 +15,9 @@ var ProtractorGenerator = module.exports = function ProtractorGenerator(args, op
       bower: false,
       skipInstall: options['skip-install'],
       callback: function() {
-        console.log('Done! Now follow these steps:');
-        console.log('\n1. Download the Protractor dependencies:');
-        console.log('./node_modules/protractor/bin/webdriver-manager update');
-        console.log('\n2. Start the Selenium server:');
-        console.log('./node_modules/protractor/bin/webdriver-manager start');
-        console.log('\n3. Open a new terminal and run Protractor:');
-        console.log('./node_modules/protractor/bin/protractor ' + self.configName);
+        var readme = self.readFileAsString('README.txt');
+        console.log('Done! Now follow these steps:\n');
+        console.log(readme);
         console.log('\nYou can read these instructions in README.txt\n');
       }
     });
