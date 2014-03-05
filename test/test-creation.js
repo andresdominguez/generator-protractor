@@ -1,9 +1,8 @@
-/*global describe, beforeEach, it*/
+/*global describe, beforeEach, it */
 'use strict';
-
 var path = require('path');
 var helpers = require('yeoman-generator').test;
-
+var assert = require('yeoman-generator').assert;
 
 describe('protractor generator', function() {
   var app;
@@ -34,7 +33,7 @@ describe('protractor generator', function() {
       app.run({}, function() {
 
         // Ensure the configuration and the package.json files were created.
-        helpers.assertFiles([
+        assert.file([
           configFileName,
           'package.json',
           'README.txt',
@@ -42,9 +41,7 @@ describe('protractor generator', function() {
         ]);
 
         // Ensure the configuration file contains the timeout.
-        helpers.assertFiles([
-          [configFileName, /ABC/]
-        ]);
+        assert.fileContent(configFileName, /ABC/);
 
         done();
       });
