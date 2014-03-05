@@ -1,6 +1,5 @@
-/*global describe, it, require*/
+/*global describe, it*/
 'use strict';
-
 var assert = require('assert');
 
 describe('protractor generator', function() {
