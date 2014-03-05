@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.1.19
+
+* Upgrade to protractor 19
+* Cleanup to use the new Yeoman format
+* Generate `.yo-rc.json` file
+
 ## Version 0.1.17
 
 * Upgrade to protractor 17

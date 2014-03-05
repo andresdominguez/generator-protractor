@@ -9,6 +9,7 @@ var ProtractorGenerator = yeoman.generators.Base.extend({
     var self = this;
 
     this.on('end', function() {
+      this.config.save();
       this.installDependencies({
         bower: false,
         skipInstall: this.options['skip-install'],

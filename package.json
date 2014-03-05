@@ -1,7 +1,29 @@
 {
   "name": "generator-protractor",
-  "version": "0.1.17",
+  "version": "0.1.19",
   "description": "A Yeoman code generator for Protractor. Protractor is an end to end test framework for Angular applications built on top of webdriverJS.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andresdominguez/generator-protractor.git"
+  },
+  "homepage": "https://github.com/andresdominguez/generator-protractor",
+  "bugs": "https://github.com/andresdominguez/generator-protractor/issues",
+  "author": {
+    "name": "Andres Dominguez",
+    "email": "code@karateca.com",
+    "url": "https://github.com/andresdominguez"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
   "keywords": [
     "yeoman-generator",
     "yeoman",
@@ -10,27 +32,12 @@
     "test",
     "testing"
   ],
-  "homepage": "https://github.com/andresdominguez/generator-protractor",
-  "bugs": "https://github.com/andresdominguez/generator-protractor/issues",
-  "author": {
-    "name": "Andres Dominguez",
-    "email": "code@karateca.com",
-    "url": "https://github.com/andresdominguez"
-  },
-  "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/andresdominguez/generator-protractor.git"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
   "dependencies": {
-    "yeoman-generator": "~0.13.0",
-    "colors": "~0.6.2"
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.12.0",
+    "mocha": "*",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-jshint": "~0.6.4",
@@ -38,14 +45,5 @@
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
-  },
-  "engines": {
-    "node": ">=0.8.0",
-    "npm": ">=1.2.10"
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+  }
 }
