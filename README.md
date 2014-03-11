@@ -8,13 +8,13 @@ It generates a node project with protractor **0.20.1**. The project includes a f
 
 Make sure you have Yeoman installed.
 
-```
+```bash
 $ npm install -g yo
 ```
 
 To install generator-protractor from npm, run:
 
-```
+```bash
 $ npm install -g generator-protractor
 ```
 
@@ -22,14 +22,14 @@ $ npm install -g generator-protractor
 
 Create a new directory where you want to add your integration tests and and cd into it:
 
-```
+```bash
 $ mkdir my-protractor-project
 $ cd my-protractor-project
 ```
 
 Run the generator:
 
-```
+```bash
 $ yo protractor
 ```
 
@@ -37,19 +37,19 @@ $ yo protractor
 
 You need to download selenium and start it in your local machine. Just run the following command:
 
-```
+```bash
 $ ./node_modules/.bin/webdriver-manager update
 ```
 
 Start the selenium standalone server with:
 
-```
+```bash
 $ ./node_modules/.bin/webdriver-manager start
 ```
 
 Open another terminal and run the integration tests:
 
-```
+```bash
 $ ./node_modules/.bin/protractor protractor-config.js
 ```
 
