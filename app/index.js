@@ -2,6 +2,8 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
+/** @type {string} The protractor version. */
+var ptorVersion = '0.20.1';
 
 var ProtractorGenerator = yeoman.generators.Base.extend({
   init: function() {
@@ -55,8 +57,10 @@ var ProtractorGenerator = yeoman.generators.Base.extend({
   },
 
   projectfiles: function() {
+    this.ptorVersion = ptorVersion;
+
     this.copy('configTemplate.js', this.configName);
-    this.copy('package.json');
+    this.template('package.json');
     this.copy('example_spec.js', 'spec/example_spec.js');
     this.copy('README.txt');
   }

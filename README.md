@@ -2,6 +2,7 @@
 
 A [Yeoman](http://yeoman.io) code generator for [Protractor](https://github.com/angular/protractor). Protractor is an end to end test framework for Angular applications built on top of webdriverJS.
 
+It generates a node project with protractor **0.20.1**. The project includes a few sample tests.
 
 ## Getting Started
 
@@ -37,19 +38,19 @@ $ yo protractor
 You need to download selenium and start it in your local machine. Just run the following command:
 
 ```
-$ ./node_modules/protractor/bin/webdriver-manager update
+$ ./node_modules/.bin/webdriver-manager update
 ```
 
 Start the selenium standalone server with:
 
 ```
-$ ./node_modules/protractor/bin/webdriver-manager start
+$ ./node_modules/.bin/webdriver-manager start
 ```
 
 Open another terminal and run the integration tests:
 
 ```
-$ ./node_modules/protractor/bin/protractor protractor-config.js
+$ ./node_modules/.bin/protractor protractor-config.js
 ```
 
 ### Getting To Know Yeoman

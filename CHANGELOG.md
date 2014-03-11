@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.1.20
+
+* Upgrade to protractor 0.20.1
+* Simplify instructions
+
 ## Version 0.1.19
 
 * Upgrade to protractor 19
