@@ -42,12 +42,20 @@ var ProtractorGenerator = yeoman.generators.Base.extend({
         name: 'baseUrl',
         message: 'Choose a base URL',
         default: 'http://localhost:8000'
+      },
+      {
+        type: 'list',
+        name: 'browsers',
+        message: 'Which browsers do you want to run?',
+        default: 0,
+        choices: ['Chrome', 'Firefox', 'Both, at the same time']
       }
     ];
 
     this.prompt(prompts, function(props) {
       this.configName = props.configName;
       this.baseUrl = props.baseUrl;
+      this.browserCapabilities = props.browsers;
       done();
     }.bind(this));
   },

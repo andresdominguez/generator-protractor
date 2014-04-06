@@ -7,10 +7,22 @@ exports.config = {
     'spec/*_spec.js'
   ],
 
+<% if(browserCapabilities == 'Chrome') { %>
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {'args': ['--disable-extensions']}
   },
+<% } else if(browserCapabilities == 'Firefox') { %>
+  capabilities: {
+    'browserName': 'firefox'
+  },
+<% } else { %>
+  multiCapabilities: [{
+    'browserName': 'firefox'
+  }, {
+    'browserName': 'chrome'
+  }],
+<% } %>
 
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
