@@ -18,7 +18,9 @@ To install generator-protractor from npm, run:
 $ npm install -g generator-protractor
 ```
 
-###Usage
+## Usage
+
+![Screenshot](https://github.com/andresdominguez/generator-protractor/blob/mulipleCapabilities/screenshot.png)
 
 Create a new directory where you want to add your integration tests and and cd into it:
 
