@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.1.22
+
+* Add support for multiple browsers: Chrome, Firefox, or Both!
+
 ## Version 0.1.21
 
 * Upgrade to protractor 0.21.0
