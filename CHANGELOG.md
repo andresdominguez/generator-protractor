@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.1.23
+
+* Upgrade to protractor 0.22.0
+* Change default name of config file to protractor.conf.js
+
 ## Version 0.1.22
 
 * Add support for multiple browsers: Chrome, Firefox, or Both!

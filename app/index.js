@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
 /** @type {string} The protractor version. */
-var ptorVersion = '0.21.0';
+var ptorVersion = '0.22.0';
 
 var ProtractorGenerator = yeoman.generators.Base.extend({
   init: function() {
@@ -35,7 +35,7 @@ var ProtractorGenerator = yeoman.generators.Base.extend({
         type: 'input',
         name: 'configName',
         message: 'Choose a name for the protractor configuration file',
-        default: 'protractor-config.js'
+        default: 'protractor.conf.js'
       },
       {
         type: 'input',
