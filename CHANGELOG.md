@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.1.25
+
+* Use protractor 0.24.0
+
 ## Version 0.1.23
 
 * Upgrade to protractor 0.22.0
