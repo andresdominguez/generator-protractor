@@ -5,6 +5,6 @@
     "protractor": "<%=ptorVersion%>"
   },
   "scripts": {
-    "install": "./node_modules/protractor/bin/webdriver-manager update"
+    "install": "node ./node_modules/protractor/bin/webdriver-manager update"
   }
 }
