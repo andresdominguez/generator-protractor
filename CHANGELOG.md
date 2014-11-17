@@ -2,6 +2,10 @@
 
 ## Version 0.2.1
 
+* Upgrade to protractor 1.4.0
+
+## Version 0.2.1
+
 * Upgrade to protractor 1.3.1
 * Add support for windows
 
