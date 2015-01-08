@@ -7,7 +7,7 @@
 ## Version 0.2.1
 
 * Upgrade to protractor 1.3.1
-* Add support for windows
+* Add support for windows. Thank you [@Joengenduvel](https://github.com/Joengenduvel)
 
 ## Version 0.2.0
 

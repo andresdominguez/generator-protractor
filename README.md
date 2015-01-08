@@ -50,7 +50,7 @@ $ ./node_modules/.bin/webdriver-manager start
 Open another terminal and run the integration tests:
 
 ```bash
-$ ./node_modules/.bin/protractor protractor-config.js
+$ ./node_modules/.bin/protractor protractor.conf.js
 ```
 
 ### Getting To Know Yeoman
