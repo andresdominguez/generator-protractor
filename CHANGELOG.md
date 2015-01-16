@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.4
+
+* Protractor 1.6.1
+
 ## Version 0.2.3
 
 * Upgrade to protractor 1.6.0
