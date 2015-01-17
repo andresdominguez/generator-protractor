@@ -1,75 +1,95 @@
-/*global describe, beforeEach, it */
 'use strict';
 var path = require('path');
 var helpers = require('yeoman-generator').test;
 var assert = require('yeoman-generator').assert;
+var os = require('os');
 
 describe('protractor generator', function() {
   var app,
       configFileName = 'theConfigFileName.js',
-      baseUrl = 'ABC';
+      baseUrl = 'ThisIsTheBaseUrl';
 
   beforeEach(function(done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function(err) {
-      if (err) {
-        return done(err);
-      }
+    helpers.run(path.join(__dirname, '../app'))
+        .inDir(path.join(os.tmpdir(), './temp'))
+        .withOptions({'skip-install': true})
+        .withPrompt({
+          someOption: true
+        })
+        .on('end', done);
+  });
 
-      app = helpers.createGenerator('protractor:app', [
-        '../../app'
+  var runGenerator = function(promptOptions, done) {
+    helpers.run(path.join(__dirname, '../app'))
+        .inDir(path.join(os.tmpdir(), './temp'))
+        .withOptions({'skip-install': true})
+        .withPrompt(promptOptions)
+        .on('end', done);
+  };
+
+  it('should import generator', function() {
+    var app = require('../app');
+    assert(app !== undefined);
+  });
+
+  it('should generate files', function(done) {
+    runGenerator({
+      configName: configFileName,
+      baseUrl: baseUrl,
+      browsers: 'Chrome'
+    }, function() {
+      // Ensure the config file, package, README, and test files are generated.
+      assert.file([
+        configFileName,
+        'package.json',
+        'README.txt',
+        'spec/example_spec.js'
       ]);
+
+      // Ensure the configuration file contains the base url.
+      assert.fileContent(configFileName, /ThisIsTheBaseUrl/);
+
       done();
     });
   });
 
-  var runGenerator = function(browsersChoice, callback) {
-    helpers.mockPrompt(app, {
-      'configName': configFileName,
-      'baseUrl': baseUrl,
-      'browsers': browsersChoice
-    });
-    app.options['skip-install'] = true;
-    app.run({}, callback);
-  };
-
-  describe('Project creation', function() {
-    it('should create config file and package.json', function(done) {
-      runGenerator('Chrome', function() {
-        // Ensure the configuration and the package.json files were created.
-        assert.file([
-          configFileName,
-          'package.json',
-          'README.txt',
-          'spec/example_spec.js'
-        ]);
-
-        // Ensure the configuration file contains the timeout.
-        assert.fileContent(configFileName, /ABC/);
+  describe('Browser choice', function() {
+    it('should create config for chrome', function(done) {
+      runGenerator({
+        configName: configFileName,
+        baseUrl: baseUrl,
+        browsers: 'Chrome'
+      }, function() {
+        // Ensure the configuration file contains chrome.
+        assert.fileContent(configFileName, /'browserName': 'chrome'/);
 
         done();
       });
     });
-  });
 
-  describe('Browser choice', function() {
-    it('should create config for chrome', function() {
-      runGenerator('Chrome', function() {
-        // Ensure the configuration file contains chrome.
-        assert.fileContent(configFileName, /'browserName': 'chrome'/);
-      });
-    });
-
-    it('should create config for Firefox', function() {
-      runGenerator('Firefox', function() {
+    it('should create config for Firefox', function(done) {
+      runGenerator({
+        configName: configFileName,
+        baseUrl: baseUrl,
+        browsers: 'Firefox'
+      }, function() {
         // Ensure the configuration file contains firefox.
         assert.fileContent(configFileName, /'browserName': 'firefox'/);
+
+        done();
       });
     });
 
-    it('should create config for both chrome and firefox', function() {
-      runGenerator('Both, at the same time', function() {
+    it('should create config for both chrome and firefox', function(done) {
+      runGenerator({
+        configName: configFileName,
+        baseUrl: baseUrl,
+        browsers: 'Both, at the same time'
+      }, function() {
         // Ensure the configuration is multi-browser.
         assert.fileContent(configFileName, /multiCapabilities/);
+
+        done();
       });
     });
   });
