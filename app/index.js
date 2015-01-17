@@ -5,27 +5,12 @@ var chalk = require('chalk');
 /** @type {string} The protractor version. */
 var ptorVersion = '1.6.1';
 
-var ProtractorGenerator = yeoman.generators.Base.extend({
-  init: function() {
+module.exports = yeoman.generators.Base.extend({
+  initializing: function() {
     this.pkg = require('../package.json');
-    var self = this;
-
-    this.on('end', function() {
-      this.config.save();
-      this.installDependencies({
-        bower: false,
-        skipInstall: this.options['skip-install'],
-        callback: function() {
-          var readme = self.readFileAsString('README.txt');
-          self.log('Done! Now follow these steps:');
-          self.log(readme);
-          self.log('You can read these instructions in README.txt');
-        }
-      });
-    });
   },
 
-  askFor: function() {
+  prompting: function() {
     var done = this.async();
 
     this.log(chalk.magenta('Welcome to the protractor code generator.'));
@@ -60,18 +45,39 @@ var ProtractorGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  app: function() {
-    this.mkdir('spec');
+  writing: {
+    app: function() {
+      this.mkdir('spec');
+    },
+
+    projectfiles: function() {
+      this.ptorVersion = ptorVersion;
+
+      this.copy(
+        'configTemplate.js',
+        this.configName
+      );
+      this.copy(
+        'example_spec.js',
+        'spec/example_spec.js'
+      );
+      this.template('package.json');
+      this.copy('README.txt');
+    }
   },
 
-  projectfiles: function() {
-    this.ptorVersion = ptorVersion;
-
-    this.copy('configTemplate.js', this.configName);
-    this.template('package.json');
-    this.copy('example_spec.js', 'spec/example_spec.js');
-    this.copy('README.txt');
+  install: function() {
+    this.config.save();
+    var self = this;
+    this.installDependencies({
+      bower: false,
+      skipInstall: this.options['skip-install'],
+      callback: function() {
+        var readme = self.readFileAsString('README.txt');
+        self.log('Done! Now follow these steps:');
+        self.log(readme);
+        self.log('You can read these instructions in README.txt');
+      }
+    });
   }
 });
-
-module.exports = ProtractorGenerator;

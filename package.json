@@ -1,6 +1,6 @@
 {
   "name": "generator-protractor",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "A Yeoman code generator for Protractor. Protractor is an end to end test framework for Angular applications built on top of webdriverJS.",
   "license": "MIT",
   "main": "app/index.js",
@@ -33,15 +33,13 @@
     "testing"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0"
+    "yeoman-generator": "^0.18.0",
+    "chalk": "^0.5.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-mocha-cli": "~1.1.0"
+    "gulp": "^3.8.10",
+    "gulp-mocha": "^2.0.0",
+    "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

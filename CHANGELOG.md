@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+
+* Upgrade to Yeoman 0.18.0
+* Refactor the generator and the unit tests
+
 ## 0.2.4
 
 * Protractor 1.6.1
