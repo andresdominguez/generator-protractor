@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+* Upgrade to protractor 1.7.0
+
 ## 0.3.0
 
 * Upgrade to Yeoman 0.18.0
