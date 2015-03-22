@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
 /** @type {string} The protractor version. */
-var ptorVersion = '1.7.0';
+var ptorVersion = '2.0.0';
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function() {
