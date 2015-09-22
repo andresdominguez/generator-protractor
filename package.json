@@ -1,6 +1,6 @@
 {
   "name": "generator-protractor",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A Yeoman code generator for Protractor. Protractor is an end to end test framework for Angular applications built on top of webdriverJS.",
   "license": "MIT",
   "main": "app/index.js",
