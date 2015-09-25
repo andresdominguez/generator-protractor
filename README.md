@@ -2,7 +2,7 @@
 
 A [Yeoman](http://yeoman.io) code generator for [Protractor](https://github.com/angular/protractor). Protractor is an end to end test framework for Angular applications built on top of webdriverJS.
 
-It generates a node project with protractor **2.0.0**. The project includes a few sample tests.
+It generates a node project with protractor **2.2.0**. The project includes a few sample tests.
 
 ## Getting Started
 
