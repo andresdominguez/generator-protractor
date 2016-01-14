@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0
+* Upgrade to protractor 3.0.0
+
 ## 0.4.1
 * Upgrade to protractor 2.2.0
 
