@@ -2,6 +2,7 @@
 
 ## 0.5.0
 * Upgrade to protractor 3.0.0
+* Update the sample spec to make it work with the angular website
 
 ## 0.4.1
 * Upgrade to protractor 2.2.0
